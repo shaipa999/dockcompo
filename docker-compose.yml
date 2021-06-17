@@ -13,7 +13,6 @@ services:
   docker:
         container_name: jenkins-docker
         privileged: true
-        network_mode: jenkins
         environment:
             - DOCKER_TLS_CERTDIR=/certs
         volumes:
@@ -24,7 +23,6 @@ services:
         image: docker:dind
   myjenkins-blueocean:
         container_name: jenkins-blueocean
-        network_mode: jenkins
         environment:
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
@@ -36,6 +34,5 @@ services:
             - ./jenkins-data:/var/jenkins_home
             - ./jenkins-docker-certs:/certs/client:ro
         build: ./myjenkins-blueocean/
-networks:
-  jenkins:
-    driver: bridge
+        
+        
