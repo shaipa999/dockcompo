@@ -20,6 +20,7 @@ services:
             - 2376:2376
         image: docker:dind
   myjenkins-blueocean:
+        privileged: true
         container_name: jenkins-blueocean
         environment:
             - DOCKER_HOST=tcp://docker:2376
