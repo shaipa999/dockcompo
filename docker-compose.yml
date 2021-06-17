@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   web:
-    build: ./web_server/
+    image: web-serv-test1:latest
     ports:
       - 5000:5000
     volumes:
@@ -33,6 +33,6 @@ services:
         volumes:
             - ./jenkins-data:/var/jenkins_home
             - ./jenkins-docker-certs:/certs/client:ro
-        build: ./myjenkins-blueocean/
+        image: myjenkins-blueocean:1.1
         
         
